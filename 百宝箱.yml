@@ -1,0 +1,743 @@
+mixed-port: 7890
+allow-lan: true
+bind-address: '*'
+mode: rule
+log-level: info
+external-controller: '127.0.0.1:9090'
+dns:
+    enable: true
+    ipv6: false
+    default-nameserver: [223.5.5.5, 119.29.29.29]
+    enhanced-mode: fake-ip
+    fake-ip-range: 198.18.0.1/16
+    use-hosts: true
+    nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+    fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
+    fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+proxies:
+    - { name: 🇺🇸美国01|直连|0.1x, server: us8.553252.xyz, port: 8080, sni: us8.553252.xyz, up: 300, down: 300, skip-cert-verify: false, type: hysteria2, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d }
+    - { name: 🇺🇸美国01|中转|2x, type: ss, server: proxy23.handboy.top, port: 34655, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇸美国01|专线|10x, type: ss, server: proxy11.handboy.top, port: 32116, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇸美国02|直连|0.5x, type: vless, server: augzbyhu.7896543.xyz, port: 2095, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: us2tttte.6128888.xyz } }, ws-path: /sssddd, ws-headers: { Host: us2tttte.6128888.xyz } }
+    - { name: 🇺🇸美国02|中转|2x, type: vmess, server: proxy7.handboy.top, port: 58675, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇸美国03|直连|0.5x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: aaus3b.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: aaus3b.853782.xyz } }
+    - { name: 🇺🇸美国03|中转|2x, type: ss, server: proxy9.handboy.top, port: 31699, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇸美国04|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2095, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: dbus2bz.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: dbus2bz.3616666.xyz } }
+    - { name: 🇺🇸美国04|中转|2x, type: ss, server: proxy26.handboy.top, port: 26858, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇸美国05|直连|0.5x, server: us5.553252.xyz, port: 8080, sni: us5.553252.xyz, up: 300, down: 300, skip-cert-verify: false, type: hysteria2, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d }
+    - { name: 🇺🇸美国05|中转|2x, type: ss, server: proxy16.handboy.top, port: 20065, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇸美国06|直连|0.5x, server: us9.handboy.top, port: 13245, sni: us9.handboy.top, up: 300, down: 300, skip-cert-verify: false, type: hysteria2, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d }
+    - { name: 🇺🇸美国06|中转|2x, type: ss, server: proxy16.handboy.top, port: 36725, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇸美国07|原生|中转|2x, type: vmess, server: proxy9.handboy.top, port: 34515, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇭🇰香港01|直连|1x, server: hk3.handboy.top, port: 8080, sni: hk3.handboy.top, up: 300, down: 300, skip-cert-verify: false, type: hysteria2, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d }
+    - { name: 🇭🇰香港01|中转|2x, type: ss, server: proxy10.handboy.top, port: 10051, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: "🇭🇰香港01|中转|2x'", type: ss, server: proxy20.handboy.top, port: 36509, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港01|专线|10x, type: ss, server: proxy19.handboy.top, port: 20055, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港02|直连|1x, server: hk6.553252.xyz, port: 8080, sni: hk6.553252.xyz, up: 300, down: 300, skip-cert-verify: false, type: hysteria2, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d }
+    - { name: 🇭🇰香港02|中转|2x, type: ss, server: proxy12.handboy.top, port: 40120, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: "🇭🇰香港02|中转|2x'", type: ss, server: proxy20.handboy.top, port: 36502, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港03|直连|1x, type: vless, server: augzbyhu.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: tuihk3s.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: tuihk3s.853782.xyz } }
+    - { name: 🇭🇰香港03|中转|2x, type: ss, server: proxy10.handboy.top, port: 10151, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港03|专线|10x, type: ss, server: proxy19.handboy.top, port: 40119, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港04|中转|2x, type: ss, server: proxy10.handboy.top, port: 45227, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港05|家宽|中转|2x, type: ss, server: proxy10.handboy.top, port: 22150, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港06|中转|2x, type: ss, server: proxy12.handboy.top, port: 40232, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: "🇭🇰香港06|中转|2x'", type: ss, server: proxy20.handboy.top, port: 36503, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港07|家宽|1x, type: vless, server: augzbyhu.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: hk8zzzkx.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: hk8zzzkx.553252.xyz } }
+    - { name: 🇭🇰香港07|家宽|中转|2x, type: ss, server: proxy1.handboy.top, port: 30761, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇰香港08|家宽|中转|2x, type: ss, server: proxy20.handboy.top, port: 36504, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本01|直连|1x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: jp1dddx.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: jp1dddx.3616666.xyz } }
+    - { name: 🇯🇵日本01|中转|2x, type: ss, server: proxy10.handboy.top, port: 14831, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本01|专线|10x, type: ss, server: proxy11.handboy.top, port: 32956, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本02|直连|1x, server: jp7.553252.xyz, port: 8080, sni: jp7.553252.xyz, up: 300, down: 300, skip-cert-verify: false, type: hysteria2, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d }
+    - { name: 🇯🇵日本02|中转|2x, type: ss, server: proxy16.handboy.top, port: 22361, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本02|专线|10x, type: ss, server: proxy11.handboy.top, port: 32957, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本03|家宽|直连|1x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: zzzxjp3z.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: zzzxjp3z.553252.xyz } }
+    - { name: 🇯🇵日本03|家宽|中转|2x, type: ss, server: proxy1.handboy.top, port: 31209, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本04|直连|1x, type: vless, server: augzbyhu.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: jp4bzwwtt.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: jp4bzwwtt.3616666.xyz } }
+    - { name: 🇯🇵日本04|中转|2x, type: ss, server: proxy16.handboy.top, port: 18687, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本04|专线|10x, type: ss, server: proxy11.handboy.top, port: 32958, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本05|中转|2x, type: ss, server: proxy1.handboy.top, port: 35782, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇯🇵日本05|专线|10x, type: ss, server: proxy11.handboy.top, port: 32959, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇰🇷韩国01|家宽|直连|1x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: kr1xxzqq.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: kr1xxzqq.553252.xyz } }
+    - { name: 🇰🇷韩国01|家宽|中转|2x, type: ss, server: proxy10.handboy.top, port: 13951, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇰🇷韩国02|直连|0.5x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: kr2xxxz.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: kr2xxxz.553252.xyz } }
+    - { name: 🇰🇷韩国02|中转|2x, type: ss, server: proxy4.handboy.top, port: 45853, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇰🇷韩国03|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: kr3bbpop.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: kr3bbpop.553252.xyz } }
+    - { name: 🇰🇷韩国03|中转|2x, type: ss, server: proxy16.handboy.top, port: 35303, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇸🇬新加坡01|直连|1x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: gtttzsg1.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: gtttzsg1.853782.xyz } }
+    - { name: 🇸🇬新加坡01|中转|2x, type: ss, server: proxy21.handboy.top, port: 26689, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇸🇬新加坡02|直连|1x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: sg2ttbb.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: sg2ttbb.853782.xyz } }
+    - { name: 🇸🇬新加坡02|中转|2x, type: vmess, server: proxy7.handboy.top, port: 58929, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇸🇬新加坡03|直连|1x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: sg3llka.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: sg3llka.853782.xyz } }
+    - { name: 🇸🇬新加坡03|中转|2x, type: ss, server: proxy16.handboy.top, port: 30051, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇸🇬新加坡04|中转|2x, type: ss, server: proxy21.handboy.top, port: 29303, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇸🇬新加坡05|中转|2x, type: ss, server: proxy9.handboy.top, port: 34514, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇼台湾01|直连|1x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: ctztw1.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: ctztw1.853782.xyz } }
+    - { name: 🇹🇼台湾01|中转|2x, type: ss, server: proxy10.handboy.top, port: 20402, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇼台湾02|直连|1x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: tw2rwq.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: tw2rwq.553252.xyz } }
+    - { name: 🇹🇼台湾02|中转|2x, type: ss, server: proxy1.handboy.top, port: 35785, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇼台湾03|直连|1x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: tw2aaaccz.112592.xyz } }, ws-path: /sssddd, ws-headers: { Host: tw2aaaccz.112592.xyz } }
+    - { name: 🇹🇼台湾03|中转|2x, type: ss, server: proxy21.handboy.top, port: 23337, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇼台湾04|直连|1x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: tw5yz.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: tw5yz.853782.xyz } }
+    - { name: 🇹🇼台湾04|中转|2x, type: ss, server: proxy1.handboy.top, port: 31207, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇵🇭菲律宾01|中转|2x, type: ss, server: proxy6.handboy.top, port: 10071, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇵🇭菲律宾02|中转|2x, type: ss, server: proxy6.handboy.top, port: 30072, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇲🇴澳门01|中转|2x, type: vmess, server: proxy7.handboy.top, port: 40945, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇻🇳越南01|原生|直连|1x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: ynauizizs.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: ynauizizs.853782.xyz } }
+    - { name: 🇻🇳越南01|原生|中转|2x, type: ss, server: proxy10.handboy.top, port: 27673, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇻🇳越南02|原生|中转|2x, type: ss, server: proxy14.handboy.top, port: 34519, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇲🇲缅甸01|中转|2x, type: vmess, server: proxy7.handboy.top, port: 48257, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇹🇭泰国01|直连|1x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: tg1zuqy.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: tg1zuqy.3616666.xyz } }
+    - { name: 🇹🇭泰国01|中转|2x, type: ss, server: proxy10.handboy.top, port: 20203, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇭泰国02|原生|中转|2x, type: ss, server: proxy21.handboy.top, port: 29200, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇳印度01|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: intttzz.112592.xyz } }, ws-path: /sssddd, ws-headers: { Host: intttzz.112592.xyz } }
+    - { name: 🇮🇳印度01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20203, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇲🇾马来西亚01|中转|2x, type: ss, server: proxy6.handboy.top, port: 10511, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇩印尼01|原生|中转|2x, type: ss, server: proxy2.handboy.top, port: 20491, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇸🇦沙特01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20301, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇰🇭柬埔寨01|原生|中转|2x, type: ss, server: proxy21.handboy.top, port: 21456, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇿乌兹别克斯坦01|中转|2x, type: ss, server: proxy23.handboy.top, port: 35800, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇰🇬吉尔吉斯斯坦01|中转|2x, type: ss, server: proxy25.handboy.top, port: 34522, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇵🇰巴基斯坦01|中转|2x, type: ss, server: proxy14.handboy.top, port: 33901, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇱以色列01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20149, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇦🇿阿塞拜疆01|家宽|中转|2x, type: ss, server: proxy14.handboy.top, port: 34520, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇷🇺俄罗斯01|直连|0.5x, type: vless, server: eluosi.handboy.top, port: 8080, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, flow: xtls-rprx-vision, tls: true, servername: ac.dopp.top, reality-opts: { public-key: MUpOWyGv9qKRoBzIprQG0AvbYbPZXTwsDpLl0XIRuBs, short-id: 33b96214 }, client-fingerprint: qq }
+    - { name: 🇷🇺俄罗斯01|中转|2x, type: ss, server: proxy10.handboy.top, port: 10199, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇷🇺俄罗斯02|中转|2x, type: ss, server: proxy23.handboy.top, port: 35796, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇷土耳其01|直连|0.5x, type: vless, server: augzbyhu.7896543.xyz, port: 80, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: tr1zzqqz.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: tr1zzqqz.853782.xyz } }
+    - { name: 🇹🇷土耳其01|中转|2x, type: ss, server: proxy26.handboy.top, port: 29262, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇷土耳其02|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: tr2xxz.clearlove.filegear-sg.me } }, ws-path: /sssddd, ws-headers: { Host: tr2xxz.clearlove.filegear-sg.me } }
+    - { name: 🇹🇷土耳其02|中转|2x, type: ss, server: proxy16.handboy.top, port: 11711, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇦🇶南极01|中转|2x, type: vmess, server: proxy22.handboy.top, port: 28910, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇲🇽墨西哥01|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: mxg1tuq.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: mxg1tuq.853782.xyz } }
+    - { name: 🇲🇽墨西哥01|中转|2x, type: ss, server: proxy22.handboy.top, port: 20307, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇲🇽墨西哥02|中转|2x, type: ss, server: proxy23.handboy.top, port: 35783, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇱🇺卢森堡01|中转|2x, type: vmess, server: proxy7.handboy.top, port: 40019, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇺🇦乌克兰01|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: wklbbbbz.112592.xyz } }, ws-path: /sssddd, ws-headers: { Host: wklbbbbz.112592.xyz } }
+    - { name: 🇺🇦乌克兰01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20172, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇺🇦乌克兰02|中转|2x, type: ss, server: proxy24.handboy.top, port: 38861, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇳🇿新西兰01|原生|中转|5x, type: ss, server: proxy23.handboy.top, port: 35797, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇳🇱荷兰01|原生|中转|2x, type: ss, server: proxy23.handboy.top, port: 35799, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇳🇱荷兰02|中转|2x, type: vmess, server: proxy23.handboy.top, port: 33117, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇨🇦加拿大01|原生|直连|0.5x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: cazzzqzzx.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: cazzzqzzx.3616666.xyz } }
+    - { name: 🇨🇦加拿大01|原生|中转|2x, type: ss, server: proxy16.handboy.top, port: 20903, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇦🇺澳大利亚01|原生|直连|0.5x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: autttbz.clearlove.filegear-sg.me } }, ws-path: /sssddd, ws-headers: { Host: autttbz.clearlove.filegear-sg.me } }
+    - { name: 🇦🇺澳大利亚01|原生|中转|2x, type: ss, server: proxy10.handboy.top, port: 43571, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇦🇺澳大利亚02|中转|2x, type: vmess, server: proxy24.handboy.top, port: 38863, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇫🇷法国01|直连|1x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: frtooi2.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: frtooi2.553252.xyz } }
+    - { name: 🇫🇷法国01|中转|2x, type: vmess, server: proxy25.handboy.top, port: 34513, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇫🇷法国02|原生|中转|2x, type: ss, server: proxy14.handboy.top, port: 21520, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇩🇪德国01|直连|0.1x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /asdas, headers: { Host: deqqqnznq.clearlove.filegear-sg.me } }, ws-path: /asdas, ws-headers: { Host: deqqqnznq.clearlove.filegear-sg.me } }
+    - { name: 🇩🇪德国01|中转|2x, type: ss, server: proxy14.handboy.top, port: 20211, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇩🇪德国02|中转|2x, type: ss, server: proxy16.handboy.top, port: 30351, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇩🇪德国03|中转|2x, type: ss, server: proxy2.handboy.top, port: 22358, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇩🇪德国04|原生|中转|2x, type: vmess, server: proxy2.handboy.top, port: 28701, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇬🇧英国01|直连|1x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: ukooooup.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: ukooooup.853782.xyz } }
+    - { name: 🇬🇧英国01|中转|2x, type: vmess, server: proxy7.handboy.top, port: 41155, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇬🇧英国02|直连|1x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: uk2xxxyu.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: uk2xxxyu.553252.xyz } }
+    - { name: 🇬🇧英国02|中转|2x, type: ss, server: proxy22.handboy.top, port: 31112, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇪🇸西班牙01|原生|中转|2x, type: ss, server: proxy4.handboy.top, port: 22972, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇵🇹葡萄牙01|中转|2x, type: ss, server: proxy23.handboy.top, port: 21459, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇷🇴罗马尼亚01|原生|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2095, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: lmxxxxzzq.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: lmxxxxzzq.553252.xyz } }
+    - { name: 🇷🇴罗马尼亚01|原生|中转|2x, type: ss, server: proxy14.handboy.top, port: 36619, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇹意大利01|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: fiootu.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: fiootu.553252.xyz } }
+    - { name: 🇮🇹意大利01|中转|2x, type: ss, server: proxy22.handboy.top, port: 30231, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇹意大利02|直连|1x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: njskkku.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: njskkku.553252.xyz } }
+    - { name: 🇮🇹意大利02|中转|2x, type: ss, server: proxy22.handboy.top, port: 10050, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇹意大利03|中转|2x, type: ss, server: proxy25.handboy.top, port: 34201, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇫🇮芬兰01|中转|2x, type: vmess, server: proxy25.handboy.top, port: 34516, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇫🇮芬兰02|中转|2x, type: ss, server: proxy23.handboy.top, port: 35801, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇧🇪比利时01|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: bequzy.clearlove.filegear-sg.me } }, ws-path: /sssddd, ws-headers: { Host: bequzy.clearlove.filegear-sg.me } }
+    - { name: 🇧🇪比利时01|中转|2x, type: ss, server: proxy10.handboy.top, port: 20210, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇱🇹立陶宛01|直连|0.5x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: ltwbbxw.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: ltwbbxw.553252.xyz } }
+    - { name: 🇱🇹立陶宛01|中转|2x, type: ss, server: proxy4.handboy.top, port: 12402, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇸🇰斯洛伐克01|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: slfkdooi.553252.xyz } }, ws-path: /sssddd, ws-headers: { Host: slfkdooi.553252.xyz } }
+    - { name: 🇸🇰斯洛伐克01|中转|2x, type: ss, server: proxy4.handboy.top, port: 12403, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇨🇭瑞士01|中转|2x, type: ss, server: proxy22.handboy.top, port: 20090, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇵🇱波兰01|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: bltoop.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: bltoop.3616666.xyz } }
+    - { name: 🇵🇱波兰01|中转|2x, type: ss, server: proxy22.handboy.top, port: 14705, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇳🇴挪威01|中转|2x, type: ss, server: proxy23.handboy.top, port: 21457, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇸🇪瑞典01|中转|2x, type: ss, server: proxy23.handboy.top, port: 35798, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇩🇰丹麦01|中转|2x, type: vmess, server: proxy23.handboy.top, port: 33116, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇮🇪爱尔兰01|直连|0.5x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: iett1z.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: iett1z.3616666.xyz } }
+    - { name: 🇮🇪爱尔兰01|中转|2x, type: ss, server: proxy22.handboy.top, port: 20111, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇪爱尔兰02|中转|2x, type: ss, server: proxy25.handboy.top, port: 34519, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇮🇸冰岛01|直连|1x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: bdokbd.clearlove.filegear-sg.me } }, ws-path: /sssddd, ws-headers: { Host: bdokbd.clearlove.filegear-sg.me } }
+    - { name: 🇮🇸冰岛01|中转|2x, type: ss, server: proxy22.handboy.top, port: 22510, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇨🇿捷克01|直连|0.5x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: jkxpainmz.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: jkxpainmz.853782.xyz } }
+    - { name: 🇨🇿捷克01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20060, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇭🇺匈牙利01|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: xyliouhqubi.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: xyliouhqubi.3616666.xyz } }
+    - { name: 🇭🇺匈牙利01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20151, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇪🇪爱沙尼亚01|直连|0.5x, type: vless, server: doqpz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: asnyzzjbcjika.clearlove.filegear-sg.me } }, ws-path: /sssddd, ws-headers: { Host: asnyzzjbcjika.clearlove.filegear-sg.me } }
+    - { name: 🇪🇪爱沙尼亚01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20040, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇧🇬保加利亚01|直连|0.5x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: bguyq.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: bguyq.853782.xyz } }
+    - { name: 🇧🇬保加利亚01|中转|2x, type: ss, server: proxy14.handboy.top, port: 20017, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇲🇩摩尔多瓦01|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: medw198zq.3616666.xyz } }, ws-path: /sssddd, ws-headers: { Host: medw198zq.3616666.xyz } }
+    - { name: 🇲🇩摩尔多瓦01|中转|2x, type: vmess, server: proxy7.handboy.top, port: 44955, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇦🇷阿根廷01|家宽|中转|2x, type: ss, server: proxy27.handboy.top, port: 30086, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇧🇷巴西01|直连|0.5x, type: vless, server: edsaga.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: bxsaigao.112592.xyz } }, ws-path: /sssddd, ws-headers: { Host: bxsaigao.112592.xyz } }
+    - { name: 🇧🇷巴西01|中转|2x, type: ss, server: proxy10.handboy.top, port: 19501, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇨🇱智利01|中转|2x, type: vmess, server: proxy28.handboy.top, port: 36081, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true }
+    - { name: 🇵🇪秘鲁01|家宽|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: pexxdkz.112592.xyz } }, ws-path: /sssddd, ws-headers: { Host: pexxdkz.112592.xyz } }
+    - { name: 🇵🇪秘鲁01|家宽|中转|2x, type: ss, server: proxy26.handboy.top, port: 20402, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇷🇼卢旺达01|直连|0.5x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: lwddkzuqb.clearlove.filegear-sg.me } }, ws-path: /sssddd, ws-headers: { Host: lwddkzuqb.clearlove.filegear-sg.me } }
+    - { name: 🇷🇼卢旺达01|中转|2x, type: ss, server: proxy14.handboy.top, port: 31519, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇲🇦摩洛哥01|中转|2x, type: ss, server: proxy14.handboy.top, port: 33519, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇪🇬埃及01|家宽|中转|2x, type: ss, server: proxy21.handboy.top, port: 29202, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇨🇮象牙海岸01|中转|2x, type: ss, server: proxy21.handboy.top, port: 29203, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇳🇬尼日利亚01|直连|1x, type: vless, server: cdsawz.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: ngoquogh.853782.xyz } }, ws-path: /sssddd, ws-headers: { Host: ngoquogh.853782.xyz } }
+    - { name: 🇳🇬尼日利亚01|中转|2x, type: ss, server: proxy16.handboy.top, port: 16089, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇹🇬多哥01|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: dgcoqozjb.112592.xyz } }, ws-path: /sssddd, ws-headers: { Host: dgcoqozjb.112592.xyz } }
+    - { name: 🇹🇬多哥01|中转|2x, type: ss, server: proxy2.handboy.top, port: 20281, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+    - { name: 🇿🇦南非01|直连|0.5x, type: vless, server: fxzujow.7896543.xyz, port: 2086, uuid: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /sssddd, headers: { Host: nfdkdkdkzhhjq.112592.xyz } }, ws-path: /sssddd, ws-headers: { Host: nfdkdkdkzhhjq.112592.xyz } }
+    - { name: 🇿🇦南非01|中转|2x, type: ss, server: proxy26.handboy.top, port: 21292, cipher: chacha20-ietf-poly1305, password: b9c35dc3-a0b6-4c23-bd9c-4398b400530d, udp: true }
+proxy-groups:
+    - { name: 百宝箱, type: select, proxies: [自动选择, 故障转移, 🇺🇸美国01|直连|0.1x, 🇺🇸美国01|中转|2x, 🇺🇸美国01|专线|10x, 🇺🇸美国02|直连|0.5x, 🇺🇸美国02|中转|2x, 🇺🇸美国03|直连|0.5x, 🇺🇸美国03|中转|2x, 🇺🇸美国04|直连|0.5x, 🇺🇸美国04|中转|2x, 🇺🇸美国05|直连|0.5x, 🇺🇸美国05|中转|2x, 🇺🇸美国06|直连|0.5x, 🇺🇸美国06|中转|2x, 🇺🇸美国07|原生|中转|2x, 🇭🇰香港01|直连|1x, 🇭🇰香港01|中转|2x, "🇭🇰香港01|中转|2x'", 🇭🇰香港01|专线|10x, 🇭🇰香港02|直连|1x, 🇭🇰香港02|中转|2x, "🇭🇰香港02|中转|2x'", 🇭🇰香港03|直连|1x, 🇭🇰香港03|中转|2x, 🇭🇰香港03|专线|10x, 🇭🇰香港04|中转|2x, 🇭🇰香港05|家宽|中转|2x, 🇭🇰香港06|中转|2x, "🇭🇰香港06|中转|2x'", 🇭🇰香港07|家宽|1x, 🇭🇰香港07|家宽|中转|2x, 🇭🇰香港08|家宽|中转|2x, 🇯🇵日本01|直连|1x, 🇯🇵日本01|中转|2x, 🇯🇵日本01|专线|10x, 🇯🇵日本02|直连|1x, 🇯🇵日本02|中转|2x, 🇯🇵日本02|专线|10x, 🇯🇵日本03|家宽|直连|1x, 🇯🇵日本03|家宽|中转|2x, 🇯🇵日本04|直连|1x, 🇯🇵日本04|中转|2x, 🇯🇵日本04|专线|10x, 🇯🇵日本05|中转|2x, 🇯🇵日本05|专线|10x, 🇰🇷韩国01|家宽|直连|1x, 🇰🇷韩国01|家宽|中转|2x, 🇰🇷韩国02|直连|0.5x, 🇰🇷韩国02|中转|2x, 🇰🇷韩国03|直连|0.5x, 🇰🇷韩国03|中转|2x, 🇸🇬新加坡01|直连|1x, 🇸🇬新加坡01|中转|2x, 🇸🇬新加坡02|直连|1x, 🇸🇬新加坡02|中转|2x, 🇸🇬新加坡03|直连|1x, 🇸🇬新加坡03|中转|2x, 🇸🇬新加坡04|中转|2x, 🇸🇬新加坡05|中转|2x, 🇹🇼台湾01|直连|1x, 🇹🇼台湾01|中转|2x, 🇹🇼台湾02|直连|1x, 🇹🇼台湾02|中转|2x, 🇹🇼台湾03|直连|1x, 🇹🇼台湾03|中转|2x, 🇹🇼台湾04|直连|1x, 🇹🇼台湾04|中转|2x, 🇵🇭菲律宾01|中转|2x, 🇵🇭菲律宾02|中转|2x, 🇲🇴澳门01|中转|2x, 🇻🇳越南01|原生|直连|1x, 🇻🇳越南01|原生|中转|2x, 🇻🇳越南02|原生|中转|2x, 🇲🇲缅甸01|中转|2x, 🇹🇭泰国01|直连|1x, 🇹🇭泰国01|中转|2x, 🇹🇭泰国02|原生|中转|2x, 🇮🇳印度01|直连|0.5x, 🇮🇳印度01|中转|2x, 🇲🇾马来西亚01|中转|2x, 🇮🇩印尼01|原生|中转|2x, 🇸🇦沙特01|中转|2x, 🇰🇭柬埔寨01|原生|中转|2x, 🇺🇿乌兹别克斯坦01|中转|2x, 🇰🇬吉尔吉斯斯坦01|中转|2x, 🇵🇰巴基斯坦01|中转|2x, 🇮🇱以色列01|中转|2x, 🇦🇿阿塞拜疆01|家宽|中转|2x, 🇷🇺俄罗斯01|直连|0.5x, 🇷🇺俄罗斯01|中转|2x, 🇷🇺俄罗斯02|中转|2x, 🇹🇷土耳其01|直连|0.5x, 🇹🇷土耳其01|中转|2x, 🇹🇷土耳其02|直连|0.5x, 🇹🇷土耳其02|中转|2x, 🇦🇶南极01|中转|2x, 🇲🇽墨西哥01|直连|0.5x, 🇲🇽墨西哥01|中转|2x, 🇲🇽墨西哥02|中转|2x, 🇱🇺卢森堡01|中转|2x, 🇺🇦乌克兰01|直连|0.5x, 🇺🇦乌克兰01|中转|2x, 🇺🇦乌克兰02|中转|2x, 🇳🇿新西兰01|原生|中转|5x, 🇳🇱荷兰01|原生|中转|2x, 🇳🇱荷兰02|中转|2x, 🇨🇦加拿大01|原生|直连|0.5x, 🇨🇦加拿大01|原生|中转|2x, 🇦🇺澳大利亚01|原生|直连|0.5x, 🇦🇺澳大利亚01|原生|中转|2x, 🇦🇺澳大利亚02|中转|2x, 🇫🇷法国01|直连|1x, 🇫🇷法国01|中转|2x, 🇫🇷法国02|原生|中转|2x, 🇩🇪德国01|直连|0.1x, 🇩🇪德国01|中转|2x, 🇩🇪德国02|中转|2x, 🇩🇪德国03|中转|2x, 🇩🇪德国04|原生|中转|2x, 🇬🇧英国01|直连|1x, 🇬🇧英国01|中转|2x, 🇬🇧英国02|直连|1x, 🇬🇧英国02|中转|2x, 🇪🇸西班牙01|原生|中转|2x, 🇵🇹葡萄牙01|中转|2x, 🇷🇴罗马尼亚01|原生|直连|0.5x, 🇷🇴罗马尼亚01|原生|中转|2x, 🇮🇹意大利01|直连|0.5x, 🇮🇹意大利01|中转|2x, 🇮🇹意大利02|直连|1x, 🇮🇹意大利02|中转|2x, 🇮🇹意大利03|中转|2x, 🇫🇮芬兰01|中转|2x, 🇫🇮芬兰02|中转|2x, 🇧🇪比利时01|直连|0.5x, 🇧🇪比利时01|中转|2x, 🇱🇹立陶宛01|直连|0.5x, 🇱🇹立陶宛01|中转|2x, 🇸🇰斯洛伐克01|直连|0.5x, 🇸🇰斯洛伐克01|中转|2x, 🇨🇭瑞士01|中转|2x, 🇵🇱波兰01|直连|0.5x, 🇵🇱波兰01|中转|2x, 🇳🇴挪威01|中转|2x, 🇸🇪瑞典01|中转|2x, 🇩🇰丹麦01|中转|2x, 🇮🇪爱尔兰01|直连|0.5x, 🇮🇪爱尔兰01|中转|2x, 🇮🇪爱尔兰02|中转|2x, 🇮🇸冰岛01|直连|1x, 🇮🇸冰岛01|中转|2x, 🇨🇿捷克01|直连|0.5x, 🇨🇿捷克01|中转|2x, 🇭🇺匈牙利01|直连|0.5x, 🇭🇺匈牙利01|中转|2x, 🇪🇪爱沙尼亚01|直连|0.5x, 🇪🇪爱沙尼亚01|中转|2x, 🇧🇬保加利亚01|直连|0.5x, 🇧🇬保加利亚01|中转|2x, 🇲🇩摩尔多瓦01|直连|0.5x, 🇲🇩摩尔多瓦01|中转|2x, 🇦🇷阿根廷01|家宽|中转|2x, 🇧🇷巴西01|直连|0.5x, 🇧🇷巴西01|中转|2x, 🇨🇱智利01|中转|2x, 🇵🇪秘鲁01|家宽|直连|0.5x, 🇵🇪秘鲁01|家宽|中转|2x, 🇷🇼卢旺达01|直连|0.5x, 🇷🇼卢旺达01|中转|2x, 🇲🇦摩洛哥01|中转|2x, 🇪🇬埃及01|家宽|中转|2x, 🇨🇮象牙海岸01|中转|2x, 🇳🇬尼日利亚01|直连|1x, 🇳🇬尼日利亚01|中转|2x, 🇹🇬多哥01|直连|0.5x, 🇹🇬多哥01|中转|2x, 🇿🇦南非01|直连|0.5x, 🇿🇦南非01|中转|2x] }
+    - { name: 自动选择, type: url-test, proxies: [🇺🇸美国01|直连|0.1x, 🇺🇸美国01|中转|2x, 🇺🇸美国01|专线|10x, 🇺🇸美国02|直连|0.5x, 🇺🇸美国02|中转|2x, 🇺🇸美国03|直连|0.5x, 🇺🇸美国03|中转|2x, 🇺🇸美国04|直连|0.5x, 🇺🇸美国04|中转|2x, 🇺🇸美国05|直连|0.5x, 🇺🇸美国05|中转|2x, 🇺🇸美国06|直连|0.5x, 🇺🇸美国06|中转|2x, 🇺🇸美国07|原生|中转|2x, 🇭🇰香港01|直连|1x, 🇭🇰香港01|中转|2x, "🇭🇰香港01|中转|2x'", 🇭🇰香港01|专线|10x, 🇭🇰香港02|直连|1x, 🇭🇰香港02|中转|2x, "🇭🇰香港02|中转|2x'", 🇭🇰香港03|直连|1x, 🇭🇰香港03|中转|2x, 🇭🇰香港03|专线|10x, 🇭🇰香港04|中转|2x, 🇭🇰香港05|家宽|中转|2x, 🇭🇰香港06|中转|2x, "🇭🇰香港06|中转|2x'", 🇭🇰香港07|家宽|1x, 🇭🇰香港07|家宽|中转|2x, 🇭🇰香港08|家宽|中转|2x, 🇯🇵日本01|直连|1x, 🇯🇵日本01|中转|2x, 🇯🇵日本01|专线|10x, 🇯🇵日本02|直连|1x, 🇯🇵日本02|中转|2x, 🇯🇵日本02|专线|10x, 🇯🇵日本03|家宽|直连|1x, 🇯🇵日本03|家宽|中转|2x, 🇯🇵日本04|直连|1x, 🇯🇵日本04|中转|2x, 🇯🇵日本04|专线|10x, 🇯🇵日本05|中转|2x, 🇯🇵日本05|专线|10x, 🇰🇷韩国01|家宽|直连|1x, 🇰🇷韩国01|家宽|中转|2x, 🇰🇷韩国02|直连|0.5x, 🇰🇷韩国02|中转|2x, 🇰🇷韩国03|直连|0.5x, 🇰🇷韩国03|中转|2x, 🇸🇬新加坡01|直连|1x, 🇸🇬新加坡01|中转|2x, 🇸🇬新加坡02|直连|1x, 🇸🇬新加坡02|中转|2x, 🇸🇬新加坡03|直连|1x, 🇸🇬新加坡03|中转|2x, 🇸🇬新加坡04|中转|2x, 🇸🇬新加坡05|中转|2x, 🇹🇼台湾01|直连|1x, 🇹🇼台湾01|中转|2x, 🇹🇼台湾02|直连|1x, 🇹🇼台湾02|中转|2x, 🇹🇼台湾03|直连|1x, 🇹🇼台湾03|中转|2x, 🇹🇼台湾04|直连|1x, 🇹🇼台湾04|中转|2x, 🇵🇭菲律宾01|中转|2x, 🇵🇭菲律宾02|中转|2x, 🇲🇴澳门01|中转|2x, 🇻🇳越南01|原生|直连|1x, 🇻🇳越南01|原生|中转|2x, 🇻🇳越南02|原生|中转|2x, 🇲🇲缅甸01|中转|2x, 🇹🇭泰国01|直连|1x, 🇹🇭泰国01|中转|2x, 🇹🇭泰国02|原生|中转|2x, 🇮🇳印度01|直连|0.5x, 🇮🇳印度01|中转|2x, 🇲🇾马来西亚01|中转|2x, 🇮🇩印尼01|原生|中转|2x, 🇸🇦沙特01|中转|2x, 🇰🇭柬埔寨01|原生|中转|2x, 🇺🇿乌兹别克斯坦01|中转|2x, 🇰🇬吉尔吉斯斯坦01|中转|2x, 🇵🇰巴基斯坦01|中转|2x, 🇮🇱以色列01|中转|2x, 🇦🇿阿塞拜疆01|家宽|中转|2x, 🇷🇺俄罗斯01|直连|0.5x, 🇷🇺俄罗斯01|中转|2x, 🇷🇺俄罗斯02|中转|2x, 🇹🇷土耳其01|直连|0.5x, 🇹🇷土耳其01|中转|2x, 🇹🇷土耳其02|直连|0.5x, 🇹🇷土耳其02|中转|2x, 🇦🇶南极01|中转|2x, 🇲🇽墨西哥01|直连|0.5x, 🇲🇽墨西哥01|中转|2x, 🇲🇽墨西哥02|中转|2x, 🇱🇺卢森堡01|中转|2x, 🇺🇦乌克兰01|直连|0.5x, 🇺🇦乌克兰01|中转|2x, 🇺🇦乌克兰02|中转|2x, 🇳🇿新西兰01|原生|中转|5x, 🇳🇱荷兰01|原生|中转|2x, 🇳🇱荷兰02|中转|2x, 🇨🇦加拿大01|原生|直连|0.5x, 🇨🇦加拿大01|原生|中转|2x, 🇦🇺澳大利亚01|原生|直连|0.5x, 🇦🇺澳大利亚01|原生|中转|2x, 🇦🇺澳大利亚02|中转|2x, 🇫🇷法国01|直连|1x, 🇫🇷法国01|中转|2x, 🇫🇷法国02|原生|中转|2x, 🇩🇪德国01|直连|0.1x, 🇩🇪德国01|中转|2x, 🇩🇪德国02|中转|2x, 🇩🇪德国03|中转|2x, 🇩🇪德国04|原生|中转|2x, 🇬🇧英国01|直连|1x, 🇬🇧英国01|中转|2x, 🇬🇧英国02|直连|1x, 🇬🇧英国02|中转|2x, 🇪🇸西班牙01|原生|中转|2x, 🇵🇹葡萄牙01|中转|2x, 🇷🇴罗马尼亚01|原生|直连|0.5x, 🇷🇴罗马尼亚01|原生|中转|2x, 🇮🇹意大利01|直连|0.5x, 🇮🇹意大利01|中转|2x, 🇮🇹意大利02|直连|1x, 🇮🇹意大利02|中转|2x, 🇮🇹意大利03|中转|2x, 🇫🇮芬兰01|中转|2x, 🇫🇮芬兰02|中转|2x, 🇧🇪比利时01|直连|0.5x, 🇧🇪比利时01|中转|2x, 🇱🇹立陶宛01|直连|0.5x, 🇱🇹立陶宛01|中转|2x, 🇸🇰斯洛伐克01|直连|0.5x, 🇸🇰斯洛伐克01|中转|2x, 🇨🇭瑞士01|中转|2x, 🇵🇱波兰01|直连|0.5x, 🇵🇱波兰01|中转|2x, 🇳🇴挪威01|中转|2x, 🇸🇪瑞典01|中转|2x, 🇩🇰丹麦01|中转|2x, 🇮🇪爱尔兰01|直连|0.5x, 🇮🇪爱尔兰01|中转|2x, 🇮🇪爱尔兰02|中转|2x, 🇮🇸冰岛01|直连|1x, 🇮🇸冰岛01|中转|2x, 🇨🇿捷克01|直连|0.5x, 🇨🇿捷克01|中转|2x, 🇭🇺匈牙利01|直连|0.5x, 🇭🇺匈牙利01|中转|2x, 🇪🇪爱沙尼亚01|直连|0.5x, 🇪🇪爱沙尼亚01|中转|2x, 🇧🇬保加利亚01|直连|0.5x, 🇧🇬保加利亚01|中转|2x, 🇲🇩摩尔多瓦01|直连|0.5x, 🇲🇩摩尔多瓦01|中转|2x, 🇦🇷阿根廷01|家宽|中转|2x, 🇧🇷巴西01|直连|0.5x, 🇧🇷巴西01|中转|2x, 🇨🇱智利01|中转|2x, 🇵🇪秘鲁01|家宽|直连|0.5x, 🇵🇪秘鲁01|家宽|中转|2x, 🇷🇼卢旺达01|直连|0.5x, 🇷🇼卢旺达01|中转|2x, 🇲🇦摩洛哥01|中转|2x, 🇪🇬埃及01|家宽|中转|2x, 🇨🇮象牙海岸01|中转|2x, 🇳🇬尼日利亚01|直连|1x, 🇳🇬尼日利亚01|中转|2x, 🇹🇬多哥01|直连|0.5x, 🇹🇬多哥01|中转|2x, 🇿🇦南非01|直连|0.5x, 🇿🇦南非01|中转|2x], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
+    - { name: 故障转移, type: fallback, proxies: [🇺🇸美国01|直连|0.1x, 🇺🇸美国01|中转|2x, 🇺🇸美国01|专线|10x, 🇺🇸美国02|直连|0.5x, 🇺🇸美国02|中转|2x, 🇺🇸美国03|直连|0.5x, 🇺🇸美国03|中转|2x, 🇺🇸美国04|直连|0.5x, 🇺🇸美国04|中转|2x, 🇺🇸美国05|直连|0.5x, 🇺🇸美国05|中转|2x, 🇺🇸美国06|直连|0.5x, 🇺🇸美国06|中转|2x, 🇺🇸美国07|原生|中转|2x, 🇭🇰香港01|直连|1x, 🇭🇰香港01|中转|2x, "🇭🇰香港01|中转|2x'", 🇭🇰香港01|专线|10x, 🇭🇰香港02|直连|1x, 🇭🇰香港02|中转|2x, "🇭🇰香港02|中转|2x'", 🇭🇰香港03|直连|1x, 🇭🇰香港03|中转|2x, 🇭🇰香港03|专线|10x, 🇭🇰香港04|中转|2x, 🇭🇰香港05|家宽|中转|2x, 🇭🇰香港06|中转|2x, "🇭🇰香港06|中转|2x'", 🇭🇰香港07|家宽|1x, 🇭🇰香港07|家宽|中转|2x, 🇭🇰香港08|家宽|中转|2x, 🇯🇵日本01|直连|1x, 🇯🇵日本01|中转|2x, 🇯🇵日本01|专线|10x, 🇯🇵日本02|直连|1x, 🇯🇵日本02|中转|2x, 🇯🇵日本02|专线|10x, 🇯🇵日本03|家宽|直连|1x, 🇯🇵日本03|家宽|中转|2x, 🇯🇵日本04|直连|1x, 🇯🇵日本04|中转|2x, 🇯🇵日本04|专线|10x, 🇯🇵日本05|中转|2x, 🇯🇵日本05|专线|10x, 🇰🇷韩国01|家宽|直连|1x, 🇰🇷韩国01|家宽|中转|2x, 🇰🇷韩国02|直连|0.5x, 🇰🇷韩国02|中转|2x, 🇰🇷韩国03|直连|0.5x, 🇰🇷韩国03|中转|2x, 🇸🇬新加坡01|直连|1x, 🇸🇬新加坡01|中转|2x, 🇸🇬新加坡02|直连|1x, 🇸🇬新加坡02|中转|2x, 🇸🇬新加坡03|直连|1x, 🇸🇬新加坡03|中转|2x, 🇸🇬新加坡04|中转|2x, 🇸🇬新加坡05|中转|2x, 🇹🇼台湾01|直连|1x, 🇹🇼台湾01|中转|2x, 🇹🇼台湾02|直连|1x, 🇹🇼台湾02|中转|2x, 🇹🇼台湾03|直连|1x, 🇹🇼台湾03|中转|2x, 🇹🇼台湾04|直连|1x, 🇹🇼台湾04|中转|2x, 🇵🇭菲律宾01|中转|2x, 🇵🇭菲律宾02|中转|2x, 🇲🇴澳门01|中转|2x, 🇻🇳越南01|原生|直连|1x, 🇻🇳越南01|原生|中转|2x, 🇻🇳越南02|原生|中转|2x, 🇲🇲缅甸01|中转|2x, 🇹🇭泰国01|直连|1x, 🇹🇭泰国01|中转|2x, 🇹🇭泰国02|原生|中转|2x, 🇮🇳印度01|直连|0.5x, 🇮🇳印度01|中转|2x, 🇲🇾马来西亚01|中转|2x, 🇮🇩印尼01|原生|中转|2x, 🇸🇦沙特01|中转|2x, 🇰🇭柬埔寨01|原生|中转|2x, 🇺🇿乌兹别克斯坦01|中转|2x, 🇰🇬吉尔吉斯斯坦01|中转|2x, 🇵🇰巴基斯坦01|中转|2x, 🇮🇱以色列01|中转|2x, 🇦🇿阿塞拜疆01|家宽|中转|2x, 🇷🇺俄罗斯01|直连|0.5x, 🇷🇺俄罗斯01|中转|2x, 🇷🇺俄罗斯02|中转|2x, 🇹🇷土耳其01|直连|0.5x, 🇹🇷土耳其01|中转|2x, 🇹🇷土耳其02|直连|0.5x, 🇹🇷土耳其02|中转|2x, 🇦🇶南极01|中转|2x, 🇲🇽墨西哥01|直连|0.5x, 🇲🇽墨西哥01|中转|2x, 🇲🇽墨西哥02|中转|2x, 🇱🇺卢森堡01|中转|2x, 🇺🇦乌克兰01|直连|0.5x, 🇺🇦乌克兰01|中转|2x, 🇺🇦乌克兰02|中转|2x, 🇳🇿新西兰01|原生|中转|5x, 🇳🇱荷兰01|原生|中转|2x, 🇳🇱荷兰02|中转|2x, 🇨🇦加拿大01|原生|直连|0.5x, 🇨🇦加拿大01|原生|中转|2x, 🇦🇺澳大利亚01|原生|直连|0.5x, 🇦🇺澳大利亚01|原生|中转|2x, 🇦🇺澳大利亚02|中转|2x, 🇫🇷法国01|直连|1x, 🇫🇷法国01|中转|2x, 🇫🇷法国02|原生|中转|2x, 🇩🇪德国01|直连|0.1x, 🇩🇪德国01|中转|2x, 🇩🇪德国02|中转|2x, 🇩🇪德国03|中转|2x, 🇩🇪德国04|原生|中转|2x, 🇬🇧英国01|直连|1x, 🇬🇧英国01|中转|2x, 🇬🇧英国02|直连|1x, 🇬🇧英国02|中转|2x, 🇪🇸西班牙01|原生|中转|2x, 🇵🇹葡萄牙01|中转|2x, 🇷🇴罗马尼亚01|原生|直连|0.5x, 🇷🇴罗马尼亚01|原生|中转|2x, 🇮🇹意大利01|直连|0.5x, 🇮🇹意大利01|中转|2x, 🇮🇹意大利02|直连|1x, 🇮🇹意大利02|中转|2x, 🇮🇹意大利03|中转|2x, 🇫🇮芬兰01|中转|2x, 🇫🇮芬兰02|中转|2x, 🇧🇪比利时01|直连|0.5x, 🇧🇪比利时01|中转|2x, 🇱🇹立陶宛01|直连|0.5x, 🇱🇹立陶宛01|中转|2x, 🇸🇰斯洛伐克01|直连|0.5x, 🇸🇰斯洛伐克01|中转|2x, 🇨🇭瑞士01|中转|2x, 🇵🇱波兰01|直连|0.5x, 🇵🇱波兰01|中转|2x, 🇳🇴挪威01|中转|2x, 🇸🇪瑞典01|中转|2x, 🇩🇰丹麦01|中转|2x, 🇮🇪爱尔兰01|直连|0.5x, 🇮🇪爱尔兰01|中转|2x, 🇮🇪爱尔兰02|中转|2x, 🇮🇸冰岛01|直连|1x, 🇮🇸冰岛01|中转|2x, 🇨🇿捷克01|直连|0.5x, 🇨🇿捷克01|中转|2x, 🇭🇺匈牙利01|直连|0.5x, 🇭🇺匈牙利01|中转|2x, 🇪🇪爱沙尼亚01|直连|0.5x, 🇪🇪爱沙尼亚01|中转|2x, 🇧🇬保加利亚01|直连|0.5x, 🇧🇬保加利亚01|中转|2x, 🇲🇩摩尔多瓦01|直连|0.5x, 🇲🇩摩尔多瓦01|中转|2x, 🇦🇷阿根廷01|家宽|中转|2x, 🇧🇷巴西01|直连|0.5x, 🇧🇷巴西01|中转|2x, 🇨🇱智利01|中转|2x, 🇵🇪秘鲁01|家宽|直连|0.5x, 🇵🇪秘鲁01|家宽|中转|2x, 🇷🇼卢旺达01|直连|0.5x, 🇷🇼卢旺达01|中转|2x, 🇲🇦摩洛哥01|中转|2x, 🇪🇬埃及01|家宽|中转|2x, 🇨🇮象牙海岸01|中转|2x, 🇳🇬尼日利亚01|直连|1x, 🇳🇬尼日利亚01|中转|2x, 🇹🇬多哥01|直连|0.5x, 🇹🇬多哥01|中转|2x, 🇿🇦南非01|直连|0.5x, 🇿🇦南非01|中转|2x], url: 'http://www.gstatic.com/generate_204', interval: 7200 }
+rules:
+    - 'IP-CIDR,113.56.219.10/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.234.255.61/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.234.255.108/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.234.255.106/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.234.255.59/32,DIRECT,no-resolve'
+    - 'IP-CIDR,45.8.158.131/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.198.71.184/32,DIRECT,no-resolve'
+    - 'IP-CIDR,104.17.135.225/32,DIRECT,no-resolve'
+    - 'IP-CIDR,111.12.60.156/32,DIRECT,no-resolve'
+    - 'IP-CIDR,104.18.127.36/32,DIRECT,no-resolve'
+    - 'IP-CIDR,23.173.216.47/32,DIRECT,no-resolve'
+    - 'IP-CIDR,157.254.21.237/32,DIRECT,no-resolve'
+    - 'IP-CIDR,183.2.150.190/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.241.224.30/32,DIRECT,no-resolve'
+    - 'IP-CIDR,82.152.162.144/32,DIRECT,no-resolve'
+    - 'IP-CIDR,23.172.40.25/32,DIRECT,no-resolve'
+    - 'IP-CIDR,66.187.6.116/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.234.255.109/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.234.255.58/32,DIRECT,no-resolve'
+    - 'IP-CIDR,120.234.255.60/32,DIRECT,no-resolve'
+    - 'IP-CIDR,162.159.252.44/32,DIRECT,no-resolve'
+    - 'IP-CIDR,183.232.155.8/32,DIRECT,no-resolve'
+    - 'IP-CIDR,104.17.76.208/32,DIRECT,no-resolve'
+    - 'IP-CIDR,113.56.219.198/32,DIRECT,no-resolve'
+    - 'IP-CIDR,104.18.49.234/32,DIRECT,no-resolve'
+    - 'IP-CIDR,8.134.23.25/32,DIRECT,no-resolve'
+    - 'IP-CIDR,8.134.14.75/32,DIRECT,no-resolve'
+    - 'IP-CIDR,8.134.255.77/32,DIRECT,no-resolve'
+    - 'IP-CIDR,8.134.142.201/32,DIRECT,no-resolve'
+    - 'IP-CIDR,31.59.111.42/32,DIRECT,no-resolve'
+    - 'DOMAIN,bbxkk1.112592.xyz,DIRECT'
+    - 'DOMAIN-SUFFIX,services.googleapis.cn,百宝箱'
+    - 'DOMAIN-SUFFIX,xn--ngstr-lra8j.com,百宝箱'
+    - 'DOMAIN,safebrowsing.urlsec.qq.com,DIRECT'
+    - 'DOMAIN,safebrowsing.googleapis.com,DIRECT'
+    - 'DOMAIN,developer.apple.com,百宝箱'
+    - 'DOMAIN-SUFFIX,digicert.com,百宝箱'
+    - 'DOMAIN,ocsp.apple.com,百宝箱'
+    - 'DOMAIN,ocsp.comodoca.com,百宝箱'
+    - 'DOMAIN,ocsp.usertrust.com,百宝箱'
+    - 'DOMAIN,ocsp.sectigo.com,百宝箱'
+    - 'DOMAIN,ocsp.verisign.net,百宝箱'
+    - 'DOMAIN-SUFFIX,apple-dns.net,百宝箱'
+    - 'DOMAIN,testflight.apple.com,百宝箱'
+    - 'DOMAIN,sandbox.itunes.apple.com,百宝箱'
+    - 'DOMAIN,itunes.apple.com,百宝箱'
+    - 'DOMAIN-SUFFIX,apps.apple.com,百宝箱'
+    - 'DOMAIN-SUFFIX,blobstore.apple.com,百宝箱'
+    - 'DOMAIN,cvws.icloud-content.com,百宝箱'
+    - 'DOMAIN-SUFFIX,mzstatic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,itunes.apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,icloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,icloud-content.com,DIRECT'
+    - 'DOMAIN-SUFFIX,me.com,DIRECT'
+    - 'DOMAIN-SUFFIX,aaplimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cdn20.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cdn-apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,akadns.net,DIRECT'
+    - 'DOMAIN-SUFFIX,akamaiedge.net,DIRECT'
+    - 'DOMAIN-SUFFIX,edgekey.net,DIRECT'
+    - 'DOMAIN-SUFFIX,mwcloudcdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,mwcname.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT'
+    - 'DOMAIN-SUFFIX,apple-mapkit.com,DIRECT'
+    - 'DOMAIN-SUFFIX,126.com,DIRECT'
+    - 'DOMAIN-SUFFIX,126.net,DIRECT'
+    - 'DOMAIN-SUFFIX,127.net,DIRECT'
+    - 'DOMAIN-SUFFIX,163.com,DIRECT'
+    - 'DOMAIN-SUFFIX,360buyimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,36kr.com,DIRECT'
+    - 'DOMAIN-SUFFIX,acfun.tv,DIRECT'
+    - 'DOMAIN-SUFFIX,air-matters.com,DIRECT'
+    - 'DOMAIN-SUFFIX,aixifan.com,DIRECT'
+    - 'DOMAIN-KEYWORD,alicdn,DIRECT'
+    - 'DOMAIN-KEYWORD,alipay,DIRECT'
+    - 'DOMAIN-KEYWORD,taobao,DIRECT'
+    - 'DOMAIN-SUFFIX,amap.com,DIRECT'
+    - 'DOMAIN-SUFFIX,autonavi.com,DIRECT'
+    - 'DOMAIN-KEYWORD,baidu,DIRECT'
+    - 'DOMAIN-SUFFIX,bdimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bdstatic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bilibili.com,DIRECT'
+    - 'DOMAIN-SUFFIX,bilivideo.com,DIRECT'
+    - 'DOMAIN-SUFFIX,caiyunapp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,clouddn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cnbeta.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cnbetacdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,cootekservice.com,DIRECT'
+    - 'DOMAIN-SUFFIX,csdn.net,DIRECT'
+    - 'DOMAIN-SUFFIX,ctrip.com,DIRECT'
+    - 'DOMAIN-SUFFIX,dgtle.com,DIRECT'
+    - 'DOMAIN-SUFFIX,dianping.com,DIRECT'
+    - 'DOMAIN-SUFFIX,douban.com,DIRECT'
+    - 'DOMAIN-SUFFIX,doubanio.com,DIRECT'
+    - 'DOMAIN-SUFFIX,duokan.com,DIRECT'
+    - 'DOMAIN-SUFFIX,easou.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ele.me,DIRECT'
+    - 'DOMAIN-SUFFIX,feng.com,DIRECT'
+    - 'DOMAIN-SUFFIX,fir.im,DIRECT'
+    - 'DOMAIN-SUFFIX,frdic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,g-cores.com,DIRECT'
+    - 'DOMAIN-SUFFIX,godic.net,DIRECT'
+    - 'DOMAIN-SUFFIX,gtimg.com,DIRECT'
+    - 'DOMAIN,cdn.hockeyapp.net,DIRECT'
+    - 'DOMAIN-SUFFIX,hongxiu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,hxcdn.net,DIRECT'
+    - 'DOMAIN-SUFFIX,iciba.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ifeng.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ifengimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ipip.net,DIRECT'
+    - 'DOMAIN-SUFFIX,iqiyi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,jd.com,DIRECT'
+    - 'DOMAIN-SUFFIX,jianshu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,knewone.com,DIRECT'
+    - 'DOMAIN-SUFFIX,le.com,DIRECT'
+    - 'DOMAIN-SUFFIX,lecloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,lemicp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,licdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,luoo.net,DIRECT'
+    - 'DOMAIN-SUFFIX,meituan.com,DIRECT'
+    - 'DOMAIN-SUFFIX,meituan.net,DIRECT'
+    - 'DOMAIN-SUFFIX,mi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miaopai.com,DIRECT'
+    - 'DOMAIN-SUFFIX,microsoft.com,DIRECT'
+    - 'DOMAIN-SUFFIX,microsoftonline.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miui.com,DIRECT'
+    - 'DOMAIN-SUFFIX,miwifi.com,DIRECT'
+    - 'DOMAIN-SUFFIX,mob.com,DIRECT'
+    - 'DOMAIN-SUFFIX,netease.com,DIRECT'
+    - 'DOMAIN-SUFFIX,office.com,DIRECT'
+    - 'DOMAIN-SUFFIX,office365.com,DIRECT'
+    - 'DOMAIN-KEYWORD,officecdn,DIRECT'
+    - 'DOMAIN-SUFFIX,oschina.net,DIRECT'
+    - 'DOMAIN-SUFFIX,ppsimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,pstatp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qcloud.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qdaily.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qdmm.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qhimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qhres.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qidian.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qihucdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qiniu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qiniucdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qiyipic.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qq.com,DIRECT'
+    - 'DOMAIN-SUFFIX,qqurl.com,DIRECT'
+    - 'DOMAIN-SUFFIX,rarbg.to,DIRECT'
+    - 'DOMAIN-SUFFIX,ruguoapp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,segmentfault.com,DIRECT'
+    - 'DOMAIN-SUFFIX,sinaapp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,smzdm.com,DIRECT'
+    - 'DOMAIN-SUFFIX,snapdrop.net,DIRECT'
+    - 'DOMAIN-SUFFIX,sogou.com,DIRECT'
+    - 'DOMAIN-SUFFIX,sogoucdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,sohu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,soku.com,DIRECT'
+    - 'DOMAIN-SUFFIX,speedtest.net,DIRECT'
+    - 'DOMAIN-SUFFIX,sspai.com,DIRECT'
+    - 'DOMAIN-SUFFIX,suning.com,DIRECT'
+    - 'DOMAIN-SUFFIX,taobao.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tencent.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tenpay.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tianyancha.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tmall.com,DIRECT'
+    - 'DOMAIN-SUFFIX,tudou.com,DIRECT'
+    - 'DOMAIN-SUFFIX,umetrip.com,DIRECT'
+    - 'DOMAIN-SUFFIX,upaiyun.com,DIRECT'
+    - 'DOMAIN-SUFFIX,upyun.com,DIRECT'
+    - 'DOMAIN-SUFFIX,veryzhun.com,DIRECT'
+    - 'DOMAIN-SUFFIX,weather.com,DIRECT'
+    - 'DOMAIN-SUFFIX,weibo.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xiami.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xiami.net,DIRECT'
+    - 'DOMAIN-SUFFIX,xiaomicp.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ximalaya.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xmcdn.com,DIRECT'
+    - 'DOMAIN-SUFFIX,xunlei.com,DIRECT'
+    - 'DOMAIN-SUFFIX,yhd.com,DIRECT'
+    - 'DOMAIN-SUFFIX,yihaodianimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,yinxiang.com,DIRECT'
+    - 'DOMAIN-SUFFIX,ykimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,youdao.com,DIRECT'
+    - 'DOMAIN-SUFFIX,youku.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zealer.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zhihu.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zhimg.com,DIRECT'
+    - 'DOMAIN-SUFFIX,zimuzu.tv,DIRECT'
+    - 'DOMAIN-SUFFIX,zoho.com,DIRECT'
+    - 'DOMAIN-KEYWORD,amazon,百宝箱'
+    - 'DOMAIN-KEYWORD,google,百宝箱'
+    - 'DOMAIN-KEYWORD,gmail,百宝箱'
+    - 'DOMAIN-KEYWORD,youtube,百宝箱'
+    - 'DOMAIN-KEYWORD,facebook,百宝箱'
+    - 'DOMAIN-SUFFIX,fb.me,百宝箱'
+    - 'DOMAIN-SUFFIX,fbcdn.net,百宝箱'
+    - 'DOMAIN-KEYWORD,twitter,百宝箱'
+    - 'DOMAIN-KEYWORD,instagram,百宝箱'
+    - 'DOMAIN-KEYWORD,dropbox,百宝箱'
+    - 'DOMAIN-SUFFIX,twimg.com,百宝箱'
+    - 'DOMAIN-KEYWORD,blogspot,百宝箱'
+    - 'DOMAIN-SUFFIX,youtu.be,百宝箱'
+    - 'DOMAIN-KEYWORD,whatsapp,百宝箱'
+    - 'DOMAIN-KEYWORD,admarvel,REJECT'
+    - 'DOMAIN-KEYWORD,admaster,REJECT'
+    - 'DOMAIN-KEYWORD,adsage,REJECT'
+    - 'DOMAIN-KEYWORD,adsmogo,REJECT'
+    - 'DOMAIN-KEYWORD,adsrvmedia,REJECT'
+    - 'DOMAIN-KEYWORD,adwords,REJECT'
+    - 'DOMAIN-KEYWORD,adservice,REJECT'
+    - 'DOMAIN-SUFFIX,appsflyer.com,REJECT'
+    - 'DOMAIN-KEYWORD,domob,REJECT'
+    - 'DOMAIN-SUFFIX,doubleclick.net,REJECT'
+    - 'DOMAIN-KEYWORD,duomeng,REJECT'
+    - 'DOMAIN-KEYWORD,dwtrack,REJECT'
+    - 'DOMAIN-KEYWORD,guanggao,REJECT'
+    - 'DOMAIN-KEYWORD,lianmeng,REJECT'
+    - 'DOMAIN-SUFFIX,mmstat.com,REJECT'
+    - 'DOMAIN-KEYWORD,mopub,REJECT'
+    - 'DOMAIN-KEYWORD,omgmta,REJECT'
+    - 'DOMAIN-KEYWORD,openx,REJECT'
+    - 'DOMAIN-KEYWORD,partnerad,REJECT'
+    - 'DOMAIN-KEYWORD,pingfore,REJECT'
+    - 'DOMAIN-KEYWORD,supersonicads,REJECT'
+    - 'DOMAIN-KEYWORD,uedas,REJECT'
+    - 'DOMAIN-KEYWORD,umeng,REJECT'
+    - 'DOMAIN-KEYWORD,usage,REJECT'
+    - 'DOMAIN-SUFFIX,vungle.com,REJECT'
+    - 'DOMAIN-KEYWORD,wlmonitor,REJECT'
+    - 'DOMAIN-KEYWORD,zjtoolbar,REJECT'
+    - 'DOMAIN-SUFFIX,9to5mac.com,百宝箱'
+    - 'DOMAIN-SUFFIX,abpchina.org,百宝箱'
+    - 'DOMAIN-SUFFIX,adblockplus.org,百宝箱'
+    - 'DOMAIN-SUFFIX,adobe.com,百宝箱'
+    - 'DOMAIN-SUFFIX,akamaized.net,百宝箱'
+    - 'DOMAIN-SUFFIX,alfredapp.com,百宝箱'
+    - 'DOMAIN-SUFFIX,amplitude.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ampproject.org,百宝箱'
+    - 'DOMAIN-SUFFIX,android.com,百宝箱'
+    - 'DOMAIN-SUFFIX,angularjs.org,百宝箱'
+    - 'DOMAIN-SUFFIX,aolcdn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,apkpure.com,百宝箱'
+    - 'DOMAIN-SUFFIX,appledaily.com,百宝箱'
+    - 'DOMAIN-SUFFIX,appshopper.com,百宝箱'
+    - 'DOMAIN-SUFFIX,appspot.com,百宝箱'
+    - 'DOMAIN-SUFFIX,arcgis.com,百宝箱'
+    - 'DOMAIN-SUFFIX,archive.org,百宝箱'
+    - 'DOMAIN-SUFFIX,armorgames.com,百宝箱'
+    - 'DOMAIN-SUFFIX,aspnetcdn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,att.com,百宝箱'
+    - 'DOMAIN-SUFFIX,awsstatic.com,百宝箱'
+    - 'DOMAIN-SUFFIX,azureedge.net,百宝箱'
+    - 'DOMAIN-SUFFIX,azurewebsites.net,百宝箱'
+    - 'DOMAIN-SUFFIX,bing.com,百宝箱'
+    - 'DOMAIN-SUFFIX,bintray.com,百宝箱'
+    - 'DOMAIN-SUFFIX,bit.com,百宝箱'
+    - 'DOMAIN-SUFFIX,bit.ly,百宝箱'
+    - 'DOMAIN-SUFFIX,bitbucket.org,百宝箱'
+    - 'DOMAIN-SUFFIX,bjango.com,百宝箱'
+    - 'DOMAIN-SUFFIX,bkrtx.com,百宝箱'
+    - 'DOMAIN-SUFFIX,blog.com,百宝箱'
+    - 'DOMAIN-SUFFIX,blogcdn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,blogger.com,百宝箱'
+    - 'DOMAIN-SUFFIX,blogsmithmedia.com,百宝箱'
+    - 'DOMAIN-SUFFIX,blogspot.com,百宝箱'
+    - 'DOMAIN-SUFFIX,blogspot.hk,百宝箱'
+    - 'DOMAIN-SUFFIX,bloomberg.com,百宝箱'
+    - 'DOMAIN-SUFFIX,box.com,百宝箱'
+    - 'DOMAIN-SUFFIX,box.net,百宝箱'
+    - 'DOMAIN-SUFFIX,cachefly.net,百宝箱'
+    - 'DOMAIN-SUFFIX,chromium.org,百宝箱'
+    - 'DOMAIN-SUFFIX,cl.ly,百宝箱'
+    - 'DOMAIN-SUFFIX,cloudflare.com,百宝箱'
+    - 'DOMAIN-SUFFIX,cloudfront.net,百宝箱'
+    - 'DOMAIN-SUFFIX,cloudmagic.com,百宝箱'
+    - 'DOMAIN-SUFFIX,cmail19.com,百宝箱'
+    - 'DOMAIN-SUFFIX,cnet.com,百宝箱'
+    - 'DOMAIN-SUFFIX,cocoapods.org,百宝箱'
+    - 'DOMAIN-SUFFIX,comodoca.com,百宝箱'
+    - 'DOMAIN-SUFFIX,crashlytics.com,百宝箱'
+    - 'DOMAIN-SUFFIX,culturedcode.com,百宝箱'
+    - 'DOMAIN-SUFFIX,d.pr,百宝箱'
+    - 'DOMAIN-SUFFIX,danilo.to,百宝箱'
+    - 'DOMAIN-SUFFIX,dayone.me,百宝箱'
+    - 'DOMAIN-SUFFIX,db.tt,百宝箱'
+    - 'DOMAIN-SUFFIX,deskconnect.com,百宝箱'
+    - 'DOMAIN-SUFFIX,disq.us,百宝箱'
+    - 'DOMAIN-SUFFIX,disqus.com,百宝箱'
+    - 'DOMAIN-SUFFIX,disquscdn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,dnsimple.com,百宝箱'
+    - 'DOMAIN-SUFFIX,docker.com,百宝箱'
+    - 'DOMAIN-SUFFIX,dribbble.com,百宝箱'
+    - 'DOMAIN-SUFFIX,droplr.com,百宝箱'
+    - 'DOMAIN-SUFFIX,duckduckgo.com,百宝箱'
+    - 'DOMAIN-SUFFIX,dueapp.com,百宝箱'
+    - 'DOMAIN-SUFFIX,dytt8.net,百宝箱'
+    - 'DOMAIN-SUFFIX,edgecastcdn.net,百宝箱'
+    - 'DOMAIN-SUFFIX,edgekey.net,百宝箱'
+    - 'DOMAIN-SUFFIX,edgesuite.net,百宝箱'
+    - 'DOMAIN-SUFFIX,engadget.com,百宝箱'
+    - 'DOMAIN-SUFFIX,entrust.net,百宝箱'
+    - 'DOMAIN-SUFFIX,eurekavpt.com,百宝箱'
+    - 'DOMAIN-SUFFIX,evernote.com,百宝箱'
+    - 'DOMAIN-SUFFIX,fabric.io,百宝箱'
+    - 'DOMAIN-SUFFIX,fast.com,百宝箱'
+    - 'DOMAIN-SUFFIX,fastly.net,百宝箱'
+    - 'DOMAIN-SUFFIX,fc2.com,百宝箱'
+    - 'DOMAIN-SUFFIX,feedburner.com,百宝箱'
+    - 'DOMAIN-SUFFIX,feedly.com,百宝箱'
+    - 'DOMAIN-SUFFIX,feedsportal.com,百宝箱'
+    - 'DOMAIN-SUFFIX,fiftythree.com,百宝箱'
+    - 'DOMAIN-SUFFIX,firebaseio.com,百宝箱'
+    - 'DOMAIN-SUFFIX,flexibits.com,百宝箱'
+    - 'DOMAIN-SUFFIX,flickr.com,百宝箱'
+    - 'DOMAIN-SUFFIX,flipboard.com,百宝箱'
+    - 'DOMAIN-SUFFIX,g.co,百宝箱'
+    - 'DOMAIN-SUFFIX,gabia.net,百宝箱'
+    - 'DOMAIN-SUFFIX,geni.us,百宝箱'
+    - 'DOMAIN-SUFFIX,gfx.ms,百宝箱'
+    - 'DOMAIN-SUFFIX,ggpht.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ghostnoteapp.com,百宝箱'
+    - 'DOMAIN-SUFFIX,git.io,百宝箱'
+    - 'DOMAIN-KEYWORD,github,百宝箱'
+    - 'DOMAIN-SUFFIX,globalsign.com,百宝箱'
+    - 'DOMAIN-SUFFIX,gmodules.com,百宝箱'
+    - 'DOMAIN-SUFFIX,godaddy.com,百宝箱'
+    - 'DOMAIN-SUFFIX,golang.org,百宝箱'
+    - 'DOMAIN-SUFFIX,gongm.in,百宝箱'
+    - 'DOMAIN-SUFFIX,goo.gl,百宝箱'
+    - 'DOMAIN-SUFFIX,goodreaders.com,百宝箱'
+    - 'DOMAIN-SUFFIX,goodreads.com,百宝箱'
+    - 'DOMAIN-SUFFIX,gravatar.com,百宝箱'
+    - 'DOMAIN-SUFFIX,gstatic.com,百宝箱'
+    - 'DOMAIN-SUFFIX,gvt0.com,百宝箱'
+    - 'DOMAIN-SUFFIX,hockeyapp.net,百宝箱'
+    - 'DOMAIN-SUFFIX,hotmail.com,百宝箱'
+    - 'DOMAIN-SUFFIX,icons8.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ifixit.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ift.tt,百宝箱'
+    - 'DOMAIN-SUFFIX,ifttt.com,百宝箱'
+    - 'DOMAIN-SUFFIX,iherb.com,百宝箱'
+    - 'DOMAIN-SUFFIX,imageshack.us,百宝箱'
+    - 'DOMAIN-SUFFIX,img.ly,百宝箱'
+    - 'DOMAIN-SUFFIX,imgur.com,百宝箱'
+    - 'DOMAIN-SUFFIX,imore.com,百宝箱'
+    - 'DOMAIN-SUFFIX,instapaper.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ipn.li,百宝箱'
+    - 'DOMAIN-SUFFIX,is.gd,百宝箱'
+    - 'DOMAIN-SUFFIX,issuu.com,百宝箱'
+    - 'DOMAIN-SUFFIX,itgonglun.com,百宝箱'
+    - 'DOMAIN-SUFFIX,itun.es,百宝箱'
+    - 'DOMAIN-SUFFIX,ixquick.com,百宝箱'
+    - 'DOMAIN-SUFFIX,j.mp,百宝箱'
+    - 'DOMAIN-SUFFIX,js.revsci.net,百宝箱'
+    - 'DOMAIN-SUFFIX,jshint.com,百宝箱'
+    - 'DOMAIN-SUFFIX,jtvnw.net,百宝箱'
+    - 'DOMAIN-SUFFIX,justgetflux.com,百宝箱'
+    - 'DOMAIN-SUFFIX,kat.cr,百宝箱'
+    - 'DOMAIN-SUFFIX,klip.me,百宝箱'
+    - 'DOMAIN-SUFFIX,libsyn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,linkedin.com,百宝箱'
+    - 'DOMAIN-SUFFIX,line-apps.com,百宝箱'
+    - 'DOMAIN-SUFFIX,linode.com,百宝箱'
+    - 'DOMAIN-SUFFIX,lithium.com,百宝箱'
+    - 'DOMAIN-SUFFIX,littlehj.com,百宝箱'
+    - 'DOMAIN-SUFFIX,live.com,百宝箱'
+    - 'DOMAIN-SUFFIX,live.net,百宝箱'
+    - 'DOMAIN-SUFFIX,livefilestore.com,百宝箱'
+    - 'DOMAIN-SUFFIX,llnwd.net,百宝箱'
+    - 'DOMAIN-SUFFIX,macid.co,百宝箱'
+    - 'DOMAIN-SUFFIX,macromedia.com,百宝箱'
+    - 'DOMAIN-SUFFIX,macrumors.com,百宝箱'
+    - 'DOMAIN-SUFFIX,mashable.com,百宝箱'
+    - 'DOMAIN-SUFFIX,mathjax.org,百宝箱'
+    - 'DOMAIN-SUFFIX,medium.com,百宝箱'
+    - 'DOMAIN-SUFFIX,mega.co.nz,百宝箱'
+    - 'DOMAIN-SUFFIX,mega.nz,百宝箱'
+    - 'DOMAIN-SUFFIX,megaupload.com,百宝箱'
+    - 'DOMAIN-SUFFIX,microsofttranslator.com,百宝箱'
+    - 'DOMAIN-SUFFIX,mindnode.com,百宝箱'
+    - 'DOMAIN-SUFFIX,mobile01.com,百宝箱'
+    - 'DOMAIN-SUFFIX,modmyi.com,百宝箱'
+    - 'DOMAIN-SUFFIX,msedge.net,百宝箱'
+    - 'DOMAIN-SUFFIX,myfontastic.com,百宝箱'
+    - 'DOMAIN-SUFFIX,name.com,百宝箱'
+    - 'DOMAIN-SUFFIX,nextmedia.com,百宝箱'
+    - 'DOMAIN-SUFFIX,nsstatic.net,百宝箱'
+    - 'DOMAIN-SUFFIX,nssurge.com,百宝箱'
+    - 'DOMAIN-SUFFIX,nyt.com,百宝箱'
+    - 'DOMAIN-SUFFIX,nytimes.com,百宝箱'
+    - 'DOMAIN-SUFFIX,omnigroup.com,百宝箱'
+    - 'DOMAIN-SUFFIX,onedrive.com,百宝箱'
+    - 'DOMAIN-SUFFIX,onenote.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ooyala.com,百宝箱'
+    - 'DOMAIN-SUFFIX,openvpn.net,百宝箱'
+    - 'DOMAIN-SUFFIX,openwrt.org,百宝箱'
+    - 'DOMAIN-SUFFIX,orkut.com,百宝箱'
+    - 'DOMAIN-SUFFIX,osxdaily.com,百宝箱'
+    - 'DOMAIN-SUFFIX,outlook.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ow.ly,百宝箱'
+    - 'DOMAIN-SUFFIX,paddleapi.com,百宝箱'
+    - 'DOMAIN-SUFFIX,parallels.com,百宝箱'
+    - 'DOMAIN-SUFFIX,parse.com,百宝箱'
+    - 'DOMAIN-SUFFIX,pdfexpert.com,百宝箱'
+    - 'DOMAIN-SUFFIX,periscope.tv,百宝箱'
+    - 'DOMAIN-SUFFIX,pinboard.in,百宝箱'
+    - 'DOMAIN-SUFFIX,pinterest.com,百宝箱'
+    - 'DOMAIN-SUFFIX,pixelmator.com,百宝箱'
+    - 'DOMAIN-SUFFIX,pixiv.net,百宝箱'
+    - 'DOMAIN-SUFFIX,playpcesor.com,百宝箱'
+    - 'DOMAIN-SUFFIX,playstation.com,百宝箱'
+    - 'DOMAIN-SUFFIX,playstation.com.hk,百宝箱'
+    - 'DOMAIN-SUFFIX,playstation.net,百宝箱'
+    - 'DOMAIN-SUFFIX,playstationnetwork.com,百宝箱'
+    - 'DOMAIN-SUFFIX,pushwoosh.com,百宝箱'
+    - 'DOMAIN-SUFFIX,rime.im,百宝箱'
+    - 'DOMAIN-SUFFIX,servebom.com,百宝箱'
+    - 'DOMAIN-SUFFIX,sfx.ms,百宝箱'
+    - 'DOMAIN-SUFFIX,shadowsocks.org,百宝箱'
+    - 'DOMAIN-SUFFIX,sharethis.com,百宝箱'
+    - 'DOMAIN-SUFFIX,shazam.com,百宝箱'
+    - 'DOMAIN-SUFFIX,skype.com,百宝箱'
+    - 'DOMAIN-SUFFIX,smartdns百宝箱.com,百宝箱'
+    - 'DOMAIN-SUFFIX,smartmailcloud.com,百宝箱'
+    - 'DOMAIN-SUFFIX,sndcdn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,sony.com,百宝箱'
+    - 'DOMAIN-SUFFIX,soundcloud.com,百宝箱'
+    - 'DOMAIN-SUFFIX,sourceforge.net,百宝箱'
+    - 'DOMAIN-SUFFIX,spotify.com,百宝箱'
+    - 'DOMAIN-SUFFIX,squarespace.com,百宝箱'
+    - 'DOMAIN-SUFFIX,sstatic.net,百宝箱'
+    - 'DOMAIN-SUFFIX,st.luluku.pw,百宝箱'
+    - 'DOMAIN-SUFFIX,stackoverflow.com,百宝箱'
+    - 'DOMAIN-SUFFIX,startpage.com,百宝箱'
+    - 'DOMAIN-SUFFIX,staticflickr.com,百宝箱'
+    - 'DOMAIN-SUFFIX,steamcommunity.com,百宝箱'
+    - 'DOMAIN-SUFFIX,symauth.com,百宝箱'
+    - 'DOMAIN-SUFFIX,symcb.com,百宝箱'
+    - 'DOMAIN-SUFFIX,symcd.com,百宝箱'
+    - 'DOMAIN-SUFFIX,tapbots.com,百宝箱'
+    - 'DOMAIN-SUFFIX,tapbots.net,百宝箱'
+    - 'DOMAIN-SUFFIX,tdesktop.com,百宝箱'
+    - 'DOMAIN-SUFFIX,techcrunch.com,百宝箱'
+    - 'DOMAIN-SUFFIX,techsmith.com,百宝箱'
+    - 'DOMAIN-SUFFIX,thepiratebay.org,百宝箱'
+    - 'DOMAIN-SUFFIX,theverge.com,百宝箱'
+    - 'DOMAIN-SUFFIX,time.com,百宝箱'
+    - 'DOMAIN-SUFFIX,timeinc.net,百宝箱'
+    - 'DOMAIN-SUFFIX,tiny.cc,百宝箱'
+    - 'DOMAIN-SUFFIX,tinypic.com,百宝箱'
+    - 'DOMAIN-SUFFIX,tmblr.co,百宝箱'
+    - 'DOMAIN-SUFFIX,todoist.com,百宝箱'
+    - 'DOMAIN-SUFFIX,trello.com,百宝箱'
+    - 'DOMAIN-SUFFIX,trustasiassl.com,百宝箱'
+    - 'DOMAIN-SUFFIX,tumblr.co,百宝箱'
+    - 'DOMAIN-SUFFIX,tumblr.com,百宝箱'
+    - 'DOMAIN-SUFFIX,tweetdeck.com,百宝箱'
+    - 'DOMAIN-SUFFIX,tweetmarker.net,百宝箱'
+    - 'DOMAIN-SUFFIX,twitch.tv,百宝箱'
+    - 'DOMAIN-SUFFIX,txmblr.com,百宝箱'
+    - 'DOMAIN-SUFFIX,typekit.net,百宝箱'
+    - 'DOMAIN-SUFFIX,ubertags.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ublock.org,百宝箱'
+    - 'DOMAIN-SUFFIX,ubnt.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ulyssesapp.com,百宝箱'
+    - 'DOMAIN-SUFFIX,urchin.com,百宝箱'
+    - 'DOMAIN-SUFFIX,usertrust.com,百宝箱'
+    - 'DOMAIN-SUFFIX,v.gd,百宝箱'
+    - 'DOMAIN-SUFFIX,v2ex.com,百宝箱'
+    - 'DOMAIN-SUFFIX,vimeo.com,百宝箱'
+    - 'DOMAIN-SUFFIX,vimeocdn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,vine.co,百宝箱'
+    - 'DOMAIN-SUFFIX,vivaldi.com,百宝箱'
+    - 'DOMAIN-SUFFIX,vox-cdn.com,百宝箱'
+    - 'DOMAIN-SUFFIX,vsco.co,百宝箱'
+    - 'DOMAIN-SUFFIX,vultr.com,百宝箱'
+    - 'DOMAIN-SUFFIX,w.org,百宝箱'
+    - 'DOMAIN-SUFFIX,w3schools.com,百宝箱'
+    - 'DOMAIN-SUFFIX,webtype.com,百宝箱'
+    - 'DOMAIN-SUFFIX,wikiwand.com,百宝箱'
+    - 'DOMAIN-SUFFIX,wikileaks.org,百宝箱'
+    - 'DOMAIN-SUFFIX,wikimedia.org,百宝箱'
+    - 'DOMAIN-SUFFIX,wikipedia.com,百宝箱'
+    - 'DOMAIN-SUFFIX,wikipedia.org,百宝箱'
+    - 'DOMAIN-SUFFIX,windows.com,百宝箱'
+    - 'DOMAIN-SUFFIX,windows.net,百宝箱'
+    - 'DOMAIN-SUFFIX,wire.com,百宝箱'
+    - 'DOMAIN-SUFFIX,wordpress.com,百宝箱'
+    - 'DOMAIN-SUFFIX,workflowy.com,百宝箱'
+    - 'DOMAIN-SUFFIX,wp.com,百宝箱'
+    - 'DOMAIN-SUFFIX,wsj.com,百宝箱'
+    - 'DOMAIN-SUFFIX,wsj.net,百宝箱'
+    - 'DOMAIN-SUFFIX,xda-developers.com,百宝箱'
+    - 'DOMAIN-SUFFIX,xeeno.com,百宝箱'
+    - 'DOMAIN-SUFFIX,xiti.com,百宝箱'
+    - 'DOMAIN-SUFFIX,yahoo.com,百宝箱'
+    - 'DOMAIN-SUFFIX,yimg.com,百宝箱'
+    - 'DOMAIN-SUFFIX,ying.com,百宝箱'
+    - 'DOMAIN-SUFFIX,yoyo.org,百宝箱'
+    - 'DOMAIN-SUFFIX,ytimg.com,百宝箱'
+    - 'DOMAIN-SUFFIX,telegra.ph,百宝箱'
+    - 'DOMAIN-SUFFIX,telegram.org,百宝箱'
+    - 'IP-CIDR,91.108.4.0/22,百宝箱,no-resolve'
+    - 'IP-CIDR,91.108.8.0/21,百宝箱,no-resolve'
+    - 'IP-CIDR,91.108.16.0/22,百宝箱,no-resolve'
+    - 'IP-CIDR,91.108.56.0/22,百宝箱,no-resolve'
+    - 'IP-CIDR,149.154.160.0/20,百宝箱,no-resolve'
+    - 'IP-CIDR6,2001:67c:4e8::/48,百宝箱,no-resolve'
+    - 'IP-CIDR6,2001:b28:f23d::/48,百宝箱,no-resolve'
+    - 'IP-CIDR6,2001:b28:f23f::/48,百宝箱,no-resolve'
+    - 'IP-CIDR,120.232.181.162/32,百宝箱,no-resolve'
+    - 'IP-CIDR,120.241.147.226/32,百宝箱,no-resolve'
+    - 'IP-CIDR,120.253.253.226/32,百宝箱,no-resolve'
+    - 'IP-CIDR,120.253.255.162/32,百宝箱,no-resolve'
+    - 'IP-CIDR,120.253.255.34/32,百宝箱,no-resolve'
+    - 'IP-CIDR,120.253.255.98/32,百宝箱,no-resolve'
+    - 'IP-CIDR,180.163.150.162/32,百宝箱,no-resolve'
+    - 'IP-CIDR,180.163.150.34/32,百宝箱,no-resolve'
+    - 'IP-CIDR,180.163.151.162/32,百宝箱,no-resolve'
+    - 'IP-CIDR,180.163.151.34/32,百宝箱,no-resolve'
+    - 'IP-CIDR,203.208.39.0/24,百宝箱,no-resolve'
+    - 'IP-CIDR,203.208.40.0/24,百宝箱,no-resolve'
+    - 'IP-CIDR,203.208.41.0/24,百宝箱,no-resolve'
+    - 'IP-CIDR,203.208.43.0/24,百宝箱,no-resolve'
+    - 'IP-CIDR,203.208.50.0/24,百宝箱,no-resolve'
+    - 'IP-CIDR,220.181.174.162/32,百宝箱,no-resolve'
+    - 'IP-CIDR,220.181.174.226/32,百宝箱,no-resolve'
+    - 'IP-CIDR,220.181.174.34/32,百宝箱,no-resolve'
+    - 'DOMAIN,injections.adguard.org,DIRECT'
+    - 'DOMAIN,local.adguard.org,DIRECT'
+    - 'DOMAIN-SUFFIX,local,DIRECT'
+    - 'IP-CIDR,127.0.0.0/8,DIRECT'
+    - 'IP-CIDR,172.16.0.0/12,DIRECT'
+    - 'IP-CIDR,192.168.0.0/16,DIRECT'
+    - 'IP-CIDR,10.0.0.0/8,DIRECT'
+    - 'IP-CIDR,17.0.0.0/8,DIRECT'
+    - 'IP-CIDR,100.64.0.0/10,DIRECT'
+    - 'IP-CIDR,224.0.0.0/4,DIRECT'
+    - 'IP-CIDR6,fe80::/10,DIRECT'
+    - 'DOMAIN-SUFFIX,cn,DIRECT'
+    - 'DOMAIN-KEYWORD,-cn,DIRECT'
+    - 'GEOIP,CN,DIRECT'
+    - 'MATCH,百宝箱'
