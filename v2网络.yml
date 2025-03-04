@@ -15,41 +15,41 @@ dns:
     fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
-    - { name: '剩余流量：1024 MB', type: ss, server: banner.v2yun.top, port: 21000, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: 套餐到期：2024-11-26, type: ss, server: banner.v2yun.top, port: 21000, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: 有问题可先尝试更新订阅, type: ss, server: banner.v2yun.top, port: 21000, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇯🇵日本 | 测试线路', type: ss, server: test.v2yun.top, port: 22001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇯🇵日本 01 | 专线', type: ss, server: jp1.v2yun.top, port: 22002, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇯🇵日本 02 | 专线', type: ss, server: jp2.v2yun.top, port: 22003, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇯🇵日本 03 | 专线', type: ss, server: jp3.v2yun.top, port: 22004, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇯🇵日本 负载 | 备用', type: ss, server: jp4.v2yun.top, port: 17437, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇭🇰香港 01 | 专线', type: ss, server: hk1.v2yun.top, port: 23001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇭🇰香港 02 | 专线', type: ss, server: hk2.v2yun.top, port: 23002, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇭🇰香港 03 | 专线', type: ss, server: hk3.v2yun.top, port: 23003, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇭🇰香港 04 | 专线', type: ss, server: hk4.v2yun.top, port: 23004, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇭🇰香港 负载 | 备用', type: ss, server: hk5.v2yun.top, port: 13355, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇺🇸美国 01 |  专线', type: ss, server: us1.v2yun.top, port: 24001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇺🇸美国 02 |  专线', type: ss, server: us2.v2yun.top, port: 24002, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇺🇸美国 03 |  专线', type: ss, server: us3.v2yun.top, port: 24003, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇺🇸美国 04 |  专线', type: ss, server: us4.v2yun.top, port: 24004, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇺🇸美国 负载 | 备用', type: ss, server: us5.v2yun.top, port: 16187, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇸🇬新加坡 01 | 2.0x', type: ss, server: sg1.v2yun.top, port: 25001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇸🇬新加坡 02 | 2.0x', type: ss, server: sg2.v2yun.top, port: 25002, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇸🇬新加坡 03 | 2.0x', type: ss, server: sg3.v2yun.top, port: 25003, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇹🇼台湾 01 | 3.0x', type: ss, server: tw1.v2yun.top, port: 26001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇹🇼台湾 02 | 3.0x', type: ss, server: tw2.v2yun.top, port: 26002, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇲🇾马来西亚 01 | 3.0x', type: ss, server: my1.v2yun.top, port: 27001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇻🇳越南 01 | 3.0x', type: ss, server: vn1.v2yun.top, port: 28001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇰🇷韩国 01 | 3.0x', type: ss, server: kr1.v2yun.top, port: 29001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇫🇷法国 01 | 4.0x', type: ss, server: fr1.v2yun.top, port: 21001, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇹🇭泰国 01 | 4.0x', type: ss, server: th1.v2yun.top, port: 21101, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇨🇦加拿大 01 | 4.0x', type: ss, server: ca1.v2yun.top, port: 21201, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇮🇩印尼 01 | 4.0x', type: ss, server: id1.v2yun.top, port: 21301, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇦🇪迪拜 01 | 4.0x', type: ss, server: ae1.v2yun.top, port: 21401, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇳🇱荷兰 01 | 4.0x', type: ss, server: nl1.v2yun.top, port: 21501, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇩🇪德国 01 | 4.0x', type: ss, server: de1.v2yun.top, port: 21601, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇬🇧英国 01 | 4.0x', type: ss, server: gb1.v2yun.top, port: 21701, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
-    - { name: '🇷🇺俄罗斯 01 | 4.0x', type: ss, server: ru1.v2yun.top, port: 21801, cipher: chacha20-ietf-poly1305, password: 4fd634cf-5e7f-4dc7-88a8-3a52fa9b0f50, udp: true }
+    - { name: '剩余流量：1024 MB', type: ss, server: banner.v2yun.top, port: 21000, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: 套餐到期：2024-11-26, type: ss, server: banner.v2yun.top, port: 21000, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: 有问题可先尝试更新订阅, type: ss, server: banner.v2yun.top, port: 21000, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇯🇵日本 | 测试线路', type: ss, server: test.v2yun.top, port: 22001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇯🇵日本 01 | 专线', type: ss, server: jp1.v2yun.top, port: 22002, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇯🇵日本 02 | 专线', type: ss, server: jp2.v2yun.top, port: 22003, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇯🇵日本 03 | 专线', type: ss, server: jp3.v2yun.top, port: 22004, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇯🇵日本 负载 | 备用', type: ss, server: jp4.v2yun.top, port: 17437, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇭🇰香港 01 | 专线', type: ss, server: hk1.v2yun.top, port: 23001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇭🇰香港 02 | 专线', type: ss, server: hk2.v2yun.top, port: 23002, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇭🇰香港 03 | 专线', type: ss, server: hk3.v2yun.top, port: 23003, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇭🇰香港 04 | 专线', type: ss, server: hk4.v2yun.top, port: 23004, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇭🇰香港 负载 | 备用', type: ss, server: hk5.v2yun.top, port: 13355, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇺🇸美国 01 |  专线', type: ss, server: us1.v2yun.top, port: 24001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇺🇸美国 02 |  专线', type: ss, server: us2.v2yun.top, port: 24002, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇺🇸美国 03 |  专线', type: ss, server: us3.v2yun.top, port: 24003, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇺🇸美国 04 |  专线', type: ss, server: us4.v2yun.top, port: 24004, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇺🇸美国 负载 | 备用', type: ss, server: us5.v2yun.top, port: 16187, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇸🇬新加坡 01 | 2.0x', type: ss, server: sg1.v2yun.top, port: 25001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇸🇬新加坡 02 | 2.0x', type: ss, server: sg2.v2yun.top, port: 25002, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇸🇬新加坡 03 | 2.0x', type: ss, server: sg3.v2yun.top, port: 25003, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇹🇼台湾 01 | 3.0x', type: ss, server: tw1.v2yun.top, port: 26001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇹🇼台湾 02 | 3.0x', type: ss, server: tw2.v2yun.top, port: 26002, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇲🇾马来西亚 01 | 3.0x', type: ss, server: my1.v2yun.top, port: 27001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇻🇳越南 01 | 3.0x', type: ss, server: vn1.v2yun.top, port: 28001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇰🇷韩国 01 | 3.0x', type: ss, server: kr1.v2yun.top, port: 29001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇫🇷法国 01 | 4.0x', type: ss, server: fr1.v2yun.top, port: 21001, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇹🇭泰国 01 | 4.0x', type: ss, server: th1.v2yun.top, port: 21101, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇨🇦加拿大 01 | 4.0x', type: ss, server: ca1.v2yun.top, port: 21201, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇮🇩印尼 01 | 4.0x', type: ss, server: id1.v2yun.top, port: 21301, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇦🇪迪拜 01 | 4.0x', type: ss, server: ae1.v2yun.top, port: 21401, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇳🇱荷兰 01 | 4.0x', type: ss, server: nl1.v2yun.top, port: 21501, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇩🇪德国 01 | 4.0x', type: ss, server: de1.v2yun.top, port: 21601, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇬🇧英国 01 | 4.0x', type: ss, server: gb1.v2yun.top, port: 21701, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
+    - { name: '🇷🇺俄罗斯 01 | 4.0x', type: ss, server: ru1.v2yun.top, port: 21801, cipher: chacha20-ietf-poly1305, password: d5933181-c626-49df-9e5d-0b8d76aab8da, udp: true }
 proxy-groups:
     - { name: V2网络, type: select, proxies: [自动选择, 故障转移, '剩余流量：1024 MB', 套餐到期：2024-11-26, 有问题可先尝试更新订阅, '🇯🇵日本 | 测试线路', '🇯🇵日本 01 | 专线', '🇯🇵日本 02 | 专线', '🇯🇵日本 03 | 专线', '🇯🇵日本 负载 | 备用', '🇭🇰香港 01 | 专线', '🇭🇰香港 02 | 专线', '🇭🇰香港 03 | 专线', '🇭🇰香港 04 | 专线', '🇭🇰香港 负载 | 备用', '🇺🇸美国 01 |  专线', '🇺🇸美国 02 |  专线', '🇺🇸美国 03 |  专线', '🇺🇸美国 04 |  专线', '🇺🇸美国 负载 | 备用', '🇸🇬新加坡 01 | 2.0x', '🇸🇬新加坡 02 | 2.0x', '🇸🇬新加坡 03 | 2.0x', '🇹🇼台湾 01 | 3.0x', '🇹🇼台湾 02 | 3.0x', '🇲🇾马来西亚 01 | 3.0x', '🇻🇳越南 01 | 3.0x', '🇰🇷韩国 01 | 3.0x', '🇫🇷法国 01 | 4.0x', '🇹🇭泰国 01 | 4.0x', '🇨🇦加拿大 01 | 4.0x', '🇮🇩印尼 01 | 4.0x', '🇦🇪迪拜 01 | 4.0x', '🇳🇱荷兰 01 | 4.0x', '🇩🇪德国 01 | 4.0x', '🇬🇧英国 01 | 4.0x', '🇷🇺俄罗斯 01 | 4.0x'] }
     - { name: 自动选择, type: url-test, proxies: ['剩余流量：1024 MB', 套餐到期：2024-11-26, 有问题可先尝试更新订阅, '🇯🇵日本 | 测试线路', '🇯🇵日本 01 | 专线', '🇯🇵日本 02 | 专线', '🇯🇵日本 03 | 专线', '🇯🇵日本 负载 | 备用', '🇭🇰香港 01 | 专线', '🇭🇰香港 02 | 专线', '🇭🇰香港 03 | 专线', '🇭🇰香港 04 | 专线', '🇭🇰香港 负载 | 备用', '🇺🇸美国 01 |  专线', '🇺🇸美国 02 |  专线', '🇺🇸美国 03 |  专线', '🇺🇸美国 04 |  专线', '🇺🇸美国 负载 | 备用', '🇸🇬新加坡 01 | 2.0x', '🇸🇬新加坡 02 | 2.0x', '🇸🇬新加坡 03 | 2.0x', '🇹🇼台湾 01 | 3.0x', '🇹🇼台湾 02 | 3.0x', '🇲🇾马来西亚 01 | 3.0x', '🇻🇳越南 01 | 3.0x', '🇰🇷韩国 01 | 3.0x', '🇫🇷法国 01 | 4.0x', '🇹🇭泰国 01 | 4.0x', '🇨🇦加拿大 01 | 4.0x', '🇮🇩印尼 01 | 4.0x', '🇦🇪迪拜 01 | 4.0x', '🇳🇱荷兰 01 | 4.0x', '🇩🇪德国 01 | 4.0x', '🇬🇧英国 01 | 4.0x', '🇷🇺俄罗斯 01 | 4.0x'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
